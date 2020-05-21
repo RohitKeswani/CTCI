@@ -40,9 +40,21 @@ public class Question5 {
     }
 
     private static void printSum(ListNode resultList) {
+        int count = 0;
+        ListNode temp = resultList;
+        while(temp!=null){
+            count++;
+            temp = temp.next;
+        }
+        int[] result = new int[count];
+        int i = 0;
         while(resultList!=null){
-            System.out.print(resultList.val+"");
+            result[i] = resultList.val;
             resultList = resultList.next;
+            i++;
+        }
+        for(i = result.length-1; i>=0; i--){
+            System.out.print(result[i]+"");
         }
         System.out.println();
     }
