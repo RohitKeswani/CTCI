@@ -7,6 +7,7 @@ public class Question6 {
         ListNode head = ListNode.createList(new int[]{1,2,5,2,1});
         boolean isPallindrome = checkIsPallindromeWithStack(head);
         System.out.println("Stack: "+isPallindrome);
+//        isPallindrome = checkIsPallindromeWithRecursion(head);
     }
 
     private static boolean checkIsPallindromeWithStack(ListNode head) {
