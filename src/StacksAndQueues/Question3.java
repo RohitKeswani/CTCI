@@ -3,6 +3,7 @@ package StacksAndQueues;
 import LinkedLists.ListNode;
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 
 class EachStack{
     int id;
@@ -42,10 +43,19 @@ class EachStack{
             System.out.println();
         }
         catch(NullPointerException e) {
-            System.err.println("Error: Empty stack.");
+            e.printStackTrace();
         }
     }
 
+    public int pop() {
+        int val = head.val;
+        head = head.next;
+        return val;
+    }
+
+    public int peek() {
+        return head.val;
+    }
 }
 
 class SetOfStacks{
@@ -78,15 +88,42 @@ class SetOfStacks{
             stackObjects.get(i).printStack();
         }
     }
+
+    public int pop() {
+        if(stackObjects.size()!=0){
+            EachStack stack = stackObjects.get(stackObjects.size()-1);
+            int val = stack.pop();
+            if(stack.currentSize==1){
+                stackObjects.remove(stackObjects.size()-1);
+                id--;
+            }
+            return val;
+        }
+        else
+            throw new EmptyStackException();
+    }
+
+    public int peek() {
+        if(stackObjects.size()!=0){
+            EachStack stack = stackObjects.get(stackObjects.size()-1);
+            return stack.peek();
+        }
+        else
+            throw new EmptyStackException();
+    }
 }
 
 public class Question3 {
     public static void main(String[] args) {
-        int[] elem = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21};
+        int[] elem = {1};
         SetOfStacks setOfStacks = new SetOfStacks();
         for(int i: elem){
             setOfStacks.push(i);
         }
+        setOfStacks.printStacks();
+        System.out.println(setOfStacks.pop());
+        setOfStacks.push(11);
+        System.out.println(setOfStacks.peek());
         setOfStacks.printStacks();
     }
 }
