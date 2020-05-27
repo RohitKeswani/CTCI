@@ -4,7 +4,7 @@ import LinkedLists.ListNode;
 
 import java.util.EmptyStackException;
 
-class Stack {
+class StackWithMin {
     static ListNode head = null;
     static int min = Integer.MAX_VALUE;
 
@@ -88,13 +88,13 @@ public class Question2 {
     public static void main(String[] args) {
         int[] elementsToPush = {5,4,3,2};
         for(int i : elementsToPush){
-            Stack.push(i);
+            StackWithMin.push(i);
         }
-        System.out.println("Min: "+Stack.min());
-        Stack.pop();
-        System.out.println("Min: "+Stack.min());
-        Stack.push(1);
-        System.out.println("Min: "+Stack.min());
-        Stack.printStack();
+        System.out.println("Min: "+ StackWithMin.min());
+        StackWithMin.pop();
+        System.out.println("Min: "+ StackWithMin.min());
+        StackWithMin.push(1);
+        System.out.println("Min: "+ StackWithMin.min());
+        StackWithMin.printStack();
     }
 }
