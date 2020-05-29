@@ -1,14 +1,17 @@
 package LinkedLists;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Question2 {
     public static void main(String[] args) {
-        ListNode head = ListNode.createList(new int[]{1,2});
+        ListNode head = ListNode.createList(new int[]{1,2,3,4,5});
         int k = 2;
 //        ListNode element = findkthLastElementIterative(head, k);
 //        System.out.println(element == null? "Wrong value of k": element.val);
 //        int idx = findkthLastElementRecursive(head, k);
-        head = deleteNthLastNode(head, k);
-        ListNode.printList(head);
+//        head = deleteNthLastNode(head, k);
+//        ListNode.printList(head);
     }
 
     private static ListNode deleteNthLastNode(ListNode head, int k) {
